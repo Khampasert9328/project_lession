@@ -1,17 +1,20 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import './App.css'
-
-
 //components
-import Login from './components/Login/Login'
+
 import Register from './components/Register/Register'
 import Navbar from './components/Navbar/NavBar'
 import Home from './components/Home/Home';
 
 
-function App() {
+import Login from './Components/Login/Login'
 
+
+
+
+
+function App() {
   return (
     <Routes>
       {/* Pass the components inside JSX */}
