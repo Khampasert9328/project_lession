@@ -1,29 +1,24 @@
-import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
-import './App.css'
-//components
+import './App.css';
 
-import Register from './components/Register/Register'
-import Navbar from './components/Navbar/NavBar'
-import Home from './components/Home/Home';
-
-
-import Login from './Components/Login/Login'
-
-
-
-
+// Importing components
+import Register from './Components/Register/Register';
+import Login from './Components/Login/Login';
+import Navbar from './Components/Navbar/Navbar';
+import Home from './Components/Home/Home';
 
 function App() {
   return (
-    <Routes>
-      {/* Pass the components inside JSX */}
-      <Route path="/" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/navbar" element={<Navbar />} />
-      <Route path="/home" element={<Home />} />
-    </Routes>
-  )
+    <div>
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/navbar" element={<Navbar />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;

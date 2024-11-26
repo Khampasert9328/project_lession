@@ -57,7 +57,7 @@ function Register() {
 
             console.log('Registration successful:', response.data);
             alert('Registration successful! Please login.');
-            navigate('/'); // Redirect to login page
+            navigate('/login'); // Redirect to login page
         } catch (error) {
             console.error('Registration failed:', error.response?.data || error.message);
             alert('Registration failed. Please try again.');

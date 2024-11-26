@@ -1,48 +1,69 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Navbar from '../Navbar/NavBar';
+import Logo from '../../assets/images/logowallpaper.jpg';
+import SuperCar1 from '../../assets/images/supercar1.webp';
+import SuperCar2 from '../../assets/images/supercar2.webp';
+import SuperCar3 from '../../assets/images/supercar3.jpg';
+import SuperCar4 from '../../assets/images/supercar4.avif';
+import CustomCard from '../CustomCard/CustomCard';
 
 function Home() {
+  // Array of card data with actual image imports
+  const cardData = [
+    {
+      title: "Supercar 1",
+      image: SuperCar1,  // Use the imported image
+      description: "A stunning supercar speeding down the road.",
+      actionText: "Learn More",
+    },
+    {
+      title: "Supercar 2",
+      image: SuperCar2,  // Use the imported image
+      description: "The latest model in the supercar lineup.",
+      actionText: "Learn More",
+    },
+    {
+      title: "Supercar 3",
+      image: SuperCar3,  // Use the imported image
+      description: "A futuristic supercar with unique design.",
+      actionText: "Learn More",
+    },
+    {
+      title: "Supercar 4",
+      image: SuperCar4,  // Use the imported image
+      description: "A luxurious supercar with advanced technology.",
+      actionText: "Learn More",
+    },
+  ];
+
+  // Button click handler
+  const handleButtonClick = () => {
+    alert('Button clicked!');
+  };
 
   return (
-    <div>
+    <div className="relative h-screen">
+      {/* Navbar */}
       <Navbar />
-      <div className="carousel w-full">
-        <div id="slide1" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide4" className="btn btn-circle">❮</a>
-            <a href="#slide2" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide2" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide1" className="btn btn-circle">❮</a>
-            <a href="#slide3" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide3" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide2" className="btn btn-circle">❮</a>
-            <a href="#slide4" className="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide4" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-            className="w-full" />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide3" className="btn btn-circle">❮</a>
-            <a href="#slide1" className="btn btn-circle">❯</a>
-          </div>
-        </div>
+
+      {/* Main Content */}
+      <div className="flex flex-col justify-center items-center h-full">
+        {/* Fullscreen Image */}
+        <img src={Logo} alt="Logo" className="w-full h-full object-cover" />
+      </div>
+
+      {/* List of Cards */}
+      <div className="p-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {cardData.map((card, index) => (
+          <CustomCard
+            key={index}
+            title={card.title}
+            image={card.image}  // Pass the image URL (imported image)
+            description={card.description}
+            actionText={card.actionText}
+            onActionClick={handleButtonClick}
+          />
+        ))}
       </div>
     </div>
   );
