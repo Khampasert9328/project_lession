@@ -53,7 +53,8 @@ function Home() {
       </div>
 
       {/* List of Cards */}
-      <div className="p-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className='p-20'>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {cardData.map((card, index) => (
           <CustomCard
             key={index}
@@ -65,6 +66,21 @@ function Home() {
           />
         ))}
       </div>
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-10">
+        {cardData.map((card, index) => (
+          <CustomCard
+            key={index}
+            title={card.title}
+            image={card.image}  // Pass the image URL (imported image)
+            description={card.description}
+            actionText={card.actionText}
+            onActionClick={handleButtonClick}
+          />
+        ))}
+      </div> */}
+
+      </div>
+ 
     </div>
   );
 }
