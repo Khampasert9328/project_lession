@@ -4,9 +4,8 @@ import './App.css';
 // Importing components
 import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';
-import Navbar from './Components/Navbar/Navbar';
+import Navbar from './Components/Navbar/NavBar';
 import Home from './Components/Home/Home';
-
 function App() {
   return (
     <div>
@@ -18,7 +17,7 @@ function App() {
         <Route path="/home" element={<Home />} />
       </Routes>
     </div>
+    
   );
 }
-
 export default App;

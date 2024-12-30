@@ -46,6 +46,7 @@ function Register() {
         if (!validateForm()) return;
 
         setLoading(true);
+        navigate('/'); 
 
         try {
             const response = await axios.post('http://your-api-endpoint/api/register', {
@@ -57,7 +58,7 @@ function Register() {
 
             console.log('Registration successful:', response.data);
             alert('Registration successful! Please login.');
-            navigate('/login'); // Redirect to login page
+            navigate('/'); // Redirect to login page
         } catch (error) {
             console.error('Registration failed:', error.response?.data || error.message);
             alert('Registration failed. Please try again.');
@@ -67,7 +68,6 @@ function Register() {
     };
 
     return (
-
             <div className="h-screen flex flex-col items-center justify-center ">
                 <div className='max-w-md w-full mx-auto bg-gray-50 rounded-lg border-1 border-[#006897] p-7 space-y-5 shadow-lg'>
                     <div className='flex flex-col text-left'>
