@@ -3,6 +3,18 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const [dropdownOpen2, setDropdownOpen2] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const toggleDropdown2 = () => {
+    setDropdownOpen2(!dropdownOpen2);
+  };
+
   return (
     <nav className="fixed w-full top-0 left-0 bg-[#006897] z-index">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,16 +31,44 @@ const Navbar = () => {
                 <Link to="#" className="text-gray-300 hover:bg-blue-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   About
                 </Link>
-                <Link to="#" className="text-gray-300 hover:bg-blue-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                  Services
-                </Link>
+                {/* Services Dropdown */}
+                <div className="relative">
+                  <button
+                    onClick={toggleDropdown}
+                    className="text-gray-300 hover:bg-blue-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Services
+                  </button>
+                  {dropdownOpen && (
+                    <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 z-10">
+                      <Link
+                        to="/service1"
+                        className="block px-4 py-2 text-gray-700 hover:bg-blue-500 hover:text-white"
+                      >
+                        Service 1
+                      </Link>
+                      <Link
+                        to="/service2"
+                        className="block px-4 py-2 text-gray-700 hover:bg-blue-500 hover:text-white"
+                      >
+                        Service 2
+                      </Link>
+                      <Link
+                        to="/service3"
+                        className="block px-4 py-2 text-gray-700 hover:bg-blue-500 hover:text-white"
+                      >
+                        Service 3
+                      </Link>
+                    </div>
+                  )}
+                </div>
                 <Link to="#" className="text-gray-300 hover:bg-blue-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   Contact
                 </Link>
               </div>
             </div>
           </div>
-          
+
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -78,7 +118,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden z-10" id="mobile-menu"> 
+        <div className="md:hidden z-10" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link
               to="#"
@@ -86,18 +126,66 @@ const Navbar = () => {
             >
               Home
             </Link>
-            <Link
-              to="#"
-              className="text-gray-300 hover:bg-blue-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              About
-            </Link>
-            <Link
-              to="#"
-              className="text-gray-300 hover:bg-blue-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >
-              Services
-            </Link>
+            <div className="relative">
+              <button onClick={toggleDropdown2}
+                className="text-gray-300 hover:bg-blue-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                About
+              </button>
+              {dropdownOpen2 && (
+                <div className="mt-2 bg-white shadow-lg rounded-md py-2 z-10">
+                  <Link
+                    to="/about1"
+                    className="block px-4 py-2 text-gray-700 hover:bg-blue-500 hover:text-white"
+                  >
+                    About 1
+                  </Link>
+                  <Link
+                    to="/about2"
+                    className="block px-4 py-2 text-gray-700 hover:bg-blue-500 hover:text-white"
+                  >
+                    About 2
+                  </Link>
+                  <Link
+                    to="/about3"
+                    className="block px-4 py-2 text-gray-700 hover:bg-blue-500 hover:text-white"
+                  >
+                    About 3
+                  </Link>
+                </div>
+              )}
+
+            </div>
+            {/* Dropdown for Mobile */}
+            <div className="relative">
+              <button
+                onClick={toggleDropdown}
+                className="text-gray-300 hover:bg-blue-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              >
+                Services
+              </button>
+              {dropdownOpen && (
+                <div className="mt-2 bg-white shadow-lg rounded-md py-2 z-10">
+                  <Link
+                    to="/service1"
+                    className="block px-4 py-2 text-gray-700 hover:bg-blue-500 hover:text-white"
+                  >
+                    Service 1
+                  </Link>
+                  <Link
+                    to="/service2"
+                    className="block px-4 py-2 text-gray-700 hover:bg-blue-500 hover:text-white"
+                  >
+                    Service 2
+                  </Link>
+                  <Link
+                    to="/service3"
+                    className="block px-4 py-2 text-gray-700 hover:bg-blue-500 hover:text-white"
+                  >
+                    Service 3
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link
               to="#"
               className="text-gray-300 hover:bg-blue-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
